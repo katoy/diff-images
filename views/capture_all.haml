@@ -1,0 +1,46 @@
+.span11
+  %h2
+    = "キャプチャーの比較"
+    -#  TODO: TAB コンポーネントを使うこと。
+    %a.btn.btn-primary.btn-larg{:href => "capture_diff.html"} 差分のみ &raquo;
+    %a.btn.btn-larg.disabled 全画像
+
+  %div#diff_list
+    %input.search.search-query{:placeholder => "画面名で絞り込み"}
+    %i.icon-search
+    %p 　　　　Diff: pixel 値が一致した部分は "black". 一致しない部分は "white" とした画像です。
+
+    %ul.paging.topPaging
+
+    %table.table.table-striped{:border => "1"}
+      %thead
+        - allfig = get_file_list()
+        %tr
+          %th.sort{"data-sort" => "idx", :rel => "tooltip", :title => "クリックでソート可"} No.
+          %th Diff (#{allfig.size}個)
+          %th Current
+          %th Prev
+          %th.sort{"data-sort" => "name", :rel => "tooltip", :title => "クリックでソート可"} 画面名称
+      %tbody.list
+        - allfig.each_with_index do |name, idx|
+        -   c_dif     = "./results/diff/" + name
+        -   c_cur     = "./results/capture/" + name
+        -   c_prv     = "./results/capture-prev/" + name
+        -   thumb_dif = "./results/thumbnail/diff/" + name
+        -   thumb_cur = "./results/thumbnail/capture/" + name
+        -   thumb_prv = "./results/thumbnail/capture-prev/" + name
+          %tr
+            %td.idx{:align => "right"} #{idx + 1}
+            %td.diff
+              %a.preview{:href => "#{get_encoded_url(c_dif)}", :target => "_blank"}
+                %img{:src => "#{get_encoded_url(thumb_dif)}", :alt => "", :onerror => "set_no_img(this);"}
+            %td.cur
+              %a.preview{:href => "#{get_encoded_url(c_cur)}", :target => "_blank"}
+                %img{:src => "#{get_encoded_url(thumb_cur)}", :alt => "", :onerror => "set_no_img(this);"}
+            %td.prv
+              %a.preview{:href => "#{get_encoded_url(c_prv)}", :target => "_blank"}
+                %img{:src => "#{get_encoded_url(thumb_prv)}", :alt => "", :onerror => "set_no_img(this);"}
+            %td.name #{name}
+
+    %ul.paging.bottomPaging
+  %p{:style => "height:600px"}

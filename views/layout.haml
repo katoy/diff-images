@@ -1,0 +1,63 @@
+<!doctype html>
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="en">
+/[if IE 8] <html class="no-js lt-ie9" lang="en">
+/ [if gt IE 8]><!
+%html.no-js{:lang => "ja"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %title
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %meta{:content => "width=device-width", :name => "viewport"}/
+    %link{:href => "less/style.less", :rel => "stylesheet/less"}/
+    %link{:rel => "shortcut icon", :href => "/favicon.ico", :type => "image/x-icon"}/
+    %link{:rel => "icon", :href => "/favicon.ico", :type => "image/x-icon"}/
+    %script{:src => "js/libs/less-1.3.0.min.js"}
+    /
+      Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile your .less files
+      to style.css, and replace the 2 lines above by this one:
+
+      <link rel="stylesheet" href="less/style.css">
+    %script{:src => "js/libs/modernizr-2.5.3-respond-1.1.0.min.js"}
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "#"} Diff images 2013
+          .nav-collapse
+            %ul.nav
+              %li.active
+                %a{:href => "#"} Home
+              %li
+                %a{:href => "#about"} About
+              %li
+                %a{:href => "#contact"} Contact
+          / /.nav-collapse
+    .container
+      / Main hero unit for a primary marketing message or call to action
+      .page-header
+        %h1 自動テストの結果表示
+        %p 画面キャプチャーの差分を表示します。
+      / Example row of columns
+      -# .row-fluid
+      .row
+        != yield
+
+      %hr/
+      %footer
+        %p &copy; Company 2013
+    / /container
+    %script{:src => "js/libs/jquery-1.7.2.min.js"}
+    %script{:src => "js/libs/bootstrap/bootstrap.min.js"}
+    %script{:src => "js/libs/list.js"}
+    -# Pageing を設定すると、hover での画像ポップアップが無効になる？
+    %script{:src => "js/libs/plugins/paging/list.paging.js"}
+    %script{:src => "js/script.js"}
+    %script{:src => "js/main.js"}

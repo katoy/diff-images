@@ -1,0 +1,78 @@
+@import "bootstrap/bootstrap.less";
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+@import "bootstrap/responsive.less";
+
+
+/* ===== Primary Styles ========================================================
+   Author:
+   ========================================================================== */
+
+
+
+#preview {
+	position: absolute;
+	border: 3px solid #333;
+	background: #444;
+	padding: 5px;
+	display: none;
+	color: #FFF;
+	text-align: center;
+}
+
+/* 
+ ============================================
+  list.js paging
+ ============================================
+*/
+.paging {
+    clear: both;
+    float: left;
+    padding-bottom: 5px;
+}
+.paging li {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30% 30% 30% 30%;
+    display: inline-block;
+    float: left;
+    padding: 8px 8px;
+    margin-right: 10px;
+}
+.paging li:nth-child(2n+1) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.paging li a {
+    color: #555555;
+    display: inline-block;
+    line-height: 14px;
+    text-decoration: none;
+}
+.paging li a.active {
+    color: #111111;
+    font-size: 18px;
+    font-weight: bold;
+    margin: -1px;
+}
+.paging li a:hover {
+    color: #111111;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+
+
