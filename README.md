@@ -16,8 +16,8 @@
     $ cd public/results
     $ source make.sh
 
-準備ができたら、sinatra アプリを起動させmす。
+準備ができたら、sinatra アプリを起動させます。  
 
     $ budle exec ruby app.rb
 
-起動したら、http://localhost:4567 にアクセスすると、画像一覧を閲覧できます。
+起動したら、http://localhost:4567 にアクセスすると、画像一覧を閲覧できます。  
